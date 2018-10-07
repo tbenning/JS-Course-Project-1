@@ -1,3 +1,137 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700');
+
+/* CSS Resets */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* General selectors  */
+body{
+    background: #f9f9f9;
+    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #1f1f1f;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+}
+
+button {
+    background-color: #2166d8;
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+/* Header Layout  */
+
+header{
+    height: 30px;
+    background: #201134;
+    width: 100%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    position: fixed;
+    z-index: 100;
+}
+
+header ul, header ul li, header div, header h1 {
+    display: inline-block;
+}
+
+header h1{
+    font-size: 18px;
+}
+
+/* Main content layout */
+.wrapper {
+    padding-top: 60px;
+}
+
+/* Sidebar styles  */
+.sidebar { 
+    width: 310px;
+    height: calc(100vh - 60px);
+    border-right: 1px solid #eaeaea;
+    padding: 15px;
+    position: fixed;
+    overflow: scroll;
+}
+
+.sidebar ul li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0 -15px;
+    cursor: pointer;
+}
+
+.sidebar li:hover {
+    background: #eaeaea;
+}
+
+.sidebar li i { 
+    padding: 15px;
+}
+
+.content { 
+    width: calc(100% - 340px);
+    padding-left: 340px;
+}
+
+
+@media only screen and (max-width: 860px) {
+    .sidebar{
+        width: 200px;
+    }
+    .content{
+        width: calc(100% - 230px);
+        padding-left: 230px;
+    }
+}
+
+/* Styling the questions container */
+.questionContainer{
+    padding: 15px;
+}
+
+.questionContainer .question {
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    min-width: 400px;
+    background: #ffffff;
+    box-shadow: 0px 2px 15px 0px rgba(98, 97, 99, 0.2);
+}
+
+.questionContainer h1{
+    font-size: 21px;
+}
+
+
+
+
+/* Styling for the radio buttons */
 /* The container */
 .container {
     display: block;

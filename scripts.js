@@ -47,7 +47,7 @@ $(function() {
         for (let thisQuestion in questions){   
             //Render out the heading and question 
             $('.questionContainer').append(`
-                <div class="question-${thisQuestion}">
+                <div class="question-${thisQuestion} question">
                 <h1>${questions[thisQuestion].title}</h1>
                 <p>${questions[thisQuestion].prompt}</p>
                 <form action="" class="questionForm"></form>
@@ -70,7 +70,7 @@ $(function() {
 
             //render out the button and close the form
             $(`.question-${thisQuestion} .questionForm`).append(`
-                <button type="submit" class="submitButton">Check Answer</button>`
+                <button type="submit" class="submitButton">Submit</button>`
             );
         };
     }
