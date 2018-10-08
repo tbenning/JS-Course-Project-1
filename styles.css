@@ -14,8 +14,6 @@ body{
     font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #1f1f1f;
     font-size: 14px;
-    display: flex;
-    flex-direction: column;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -42,23 +40,38 @@ button {
 /* Header Layout  */
 
 header{
-    height: 30px;
+    height: 60px;
     background: #201134;
     width: 100%;
     color: #ffffff;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 15px;
     position: fixed;
     z-index: 100;
 }
 
-header ul, header ul li, header div, header h1 {
+header ul, header ul li, header div {
     display: inline-block;
 }
 
 header h1{
     font-size: 18px;
+}
+
+header ul{
+    padding: 10px;
+}
+header ul li{
+    padding: 5px;
+}
+
+.courseTitle {
+    display: block;
+}
+
+header.logo {
+    display: inline;
 }
 
 /* Main content layout */
@@ -70,10 +83,22 @@ header h1{
 .sidebar { 
     width: 310px;
     height: calc(100vh - 60px);
-    border-right: 1px solid #eaeaea;
+    border-right: 1px solid #D9DDE1;
     padding: 15px;
     position: fixed;
     overflow: scroll;
+}
+
+.sidebar ul {
+    margin-top: 10px;
+}
+
+.sidebar h3 { 
+    font-size: 21px;
+}
+
+.sidebar h4 {
+    padding-top: 10px;
 }
 
 .sidebar ul li {
@@ -85,11 +110,28 @@ header h1{
 }
 
 .sidebar li:hover {
-    background: #eaeaea;
+    background: #EAEAEA;
 }
 
-.sidebar li i { 
+.sidebar li.active { 
+    background: #EAEAEA;
+    border-right: 3px solid #2166d8;
+}
+
+.sidebar li .icon { 
     padding: 15px;
+}
+
+.sidebar li h2 {
+    font-size: 14px;
+}
+
+.sidebar .questionTitle span{
+    color: #626262;
+}
+
+.sidebar span {
+    display: block;
 }
 
 .content { 
@@ -118,7 +160,7 @@ header h1{
     margin: 0 auto;
     margin-bottom: 30px;
     border-radius: 10px;
-    max-width: 600px;
+    max-width: 680px;
     min-width: 400px;
     background: #ffffff;
     box-shadow: 0px 2px 15px 0px rgba(98, 97, 99, 0.2);
@@ -126,9 +168,28 @@ header h1{
 
 .questionContainer h1{
     font-size: 21px;
+    padding-bottom: 5px;
 }
 
+.questionContainer p {
+    font-size: 16px;
+}
 
+.questionHeader {
+    border-bottom:  1px solid #D9DDE1;
+    padding: 20px;
+    margin: -20px -20px 20px -20px;
+}
+
+.questionBody p {
+    margin-bottom: 15px;
+}
+
+.questionFooter {
+    border-top: 1px solid #D9DDE1;
+    padding: 15px 20px;
+    margin: 20px -20px -20px -20px;
+}
 
 
 /* Styling for the radio buttons */
@@ -136,10 +197,10 @@ header h1{
 .container {
     display: block;
     position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #D9DDE1;
     cursor: pointer;
-    font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -154,24 +215,22 @@ header h1{
 }
 
 /* Create a custom radio button */
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-}
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-    background-color: #ccc;
+.container:hover {
+    background-color: #EAEAEA;
 }
 
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
     background-color: #2196F3;
+    border: 1px solid blue;
+}
+
+.container input:checked + label.container {
+    background-color: #2196F3;
+    border: 1px solid blue;
+    color: blue;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -182,16 +241,6 @@ header h1{
 }
 
 /* Show the indicator (dot/circle) when checked */
-.container input:checked ~ .checkmark:after {
-    display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.container .checkmark:after {
- 	top: 9px;
-	left: 9px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: white;
+.container input:checked ~ .container {
+    border: 1px solid blue;
 }

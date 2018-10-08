@@ -7,7 +7,7 @@ $(function() {
 // Question data to load 
     const questions = [
         {
-            title: 'Title 1',
+            title: 'Question 6',
             prompt: 'This is the question body',
             answers: {
                 a: "Option A1",
@@ -19,7 +19,7 @@ $(function() {
             correctAnswer: "d",
         },
         {
-            title: 'Title 2',
+            title: 'Question 5',
             prompt: 'This is the question body 2',
             answers: {
                 a: "Option A2",
@@ -30,7 +30,7 @@ $(function() {
             correctAnswer: "b"
         },
         {
-            title: 'Title 3',
+            title: 'Question 4',
             prompt: 'This is the question body 2',
             answers: {
                 a: "Option A3",
@@ -42,15 +42,21 @@ $(function() {
         }];
    
 
+
     // Build questions
     function buildQuestions () {
         for (let thisQuestion in questions){   
             //Render out the heading and question 
             $('.questionContainer').append(`
                 <div class="question-${thisQuestion} question">
-                <h1>${questions[thisQuestion].title}</h1>
-                <p>${questions[thisQuestion].prompt}</p>
-                <form action="" class="questionForm"></form>
+                    <div class="questionHeader">
+                        <h1>${questions[thisQuestion].title}</h1>
+                        <p>Unanswered</p>
+                    </div>
+                    <div class="questionBody">
+                        <p>${questions[thisQuestion].prompt}</p>
+                        <form action="" class="questionForm"></form>
+                    </div>
                 </div>
                 `
             );
@@ -70,7 +76,9 @@ $(function() {
 
             //render out the button and close the form
             $(`.question-${thisQuestion} .questionForm`).append(`
-                <button type="submit" class="submitButton">Submit</button>`
+                <div class="questionFooter">
+                    <button type="submit" class="submitButton">Submit</button>
+                </div>`
             );
         };
     }
@@ -96,6 +104,8 @@ $(function() {
             console.log(`Correct aswe ${correctAnswer}`);
             console.log(`Chosen answer ${userAnswer}`);            
         }   
+
+        $(`.question-${thisQuestion} .questionHeader p`).text('Answered');
     } 
 
     buildQuestions();
@@ -115,5 +125,16 @@ $(function() {
     // User can select another answer, the button becomes active, and can submit again
 
     
+    // All other behaviour
+    
+    // Listen if a list item in the sidebar is clicked, if so add a class "active"
+    $('.sidebar li').on('click', function() {
+        console.log('sidebar clicked');
+        // Check all the items and remove classes
+        $('.sidebar li ').removeClass('active');
+        // Add class to this item that was clicked
+        $(this).addClass('active');
+    });
+
 
 });
