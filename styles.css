@@ -37,6 +37,10 @@ button {
     font-weight: 600;
     cursor: pointer;
 }
+
+button:hover {
+    background: #1a56b6;
+}
 /* Header Layout  */
 
 header{

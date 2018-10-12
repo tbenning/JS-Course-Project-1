@@ -7,19 +7,19 @@ $(function() {
 // Question data to load 
     const questions = [
         {
-            title: 'Question 6',
-            prompt: 'This is the question body',
+            title: 'Question 1',
+            prompt: 'Of all the doggos the wurld, who is the fluffest?',
             answers: {
-                a: "Option A1",
-                b: "Option B",
-                c: "Option C",
-                d: "Option D",
-                e: "Option E",
+                a: "Sir Hubert J Pennysworth",
+                b: "Swan Ronson",
+                c: "Air Bud",
+                d: "Scout",
+                e: "Jagger",
             },
             correctAnswer: "d",
         },
         {
-            title: 'Question 5',
+            title: 'Question 2',
             prompt: 'This is the question body 2',
             answers: {
                 a: "Option A2",
@@ -30,7 +30,7 @@ $(function() {
             correctAnswer: "b"
         },
         {
-            title: 'Question 4',
+            title: 'Question 3',
             prompt: 'This is the question body 2',
             answers: {
                 a: "Option A3",
@@ -77,7 +77,7 @@ $(function() {
             //render out the button and close the form
             $(`.question-${thisQuestion} .questionForm`).append(`
                 <div class="questionFooter">
-                    <button type="submit" class="submitButton">Submit</button>
+                    <button type="submit" class="submitButton">Check Answer</button>
                 </div>`
             );
         };
