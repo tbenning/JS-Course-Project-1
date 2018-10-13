@@ -7,38 +7,38 @@ $(function() {
 // Question data to load 
     const questions = [
         {
-            title: 'Question 6',
-            prompt: 'This is the question body',
+            title: 'Question 1',
+            prompt: 'Of all the doggos the wurld, who is the fluffest?',
             answers: {
-                a: "Option A1",
-                b: "Option B",
-                c: "Option C",
-                d: "Option D",
-                e: "Option E",
+                a: "Sir Hubert J Pennysworth",
+                b: "Swan Ronson",
+                c: "Air Bud",
+                d: "Scout",
+                e: "Jagger",
             },
             correctAnswer: "d",
         },
         {
-            title: 'Question 5',
-            prompt: 'This is the question body 2',
+            title: 'Question 2',
+            prompt: `Canada is the world's second largest exporter of what fruit?`,
             answers: {
-                a: "Option A2",
-                b: "Option B",
-                c: "Option C",
-                d: "Option D"
+                a: "Cantaloupe",
+                b: "Blueberries",
+                c: "Wintermelon",
+                d: "Strawberries"
             },
             correctAnswer: "b"
         },
         {
-            title: 'Question 4',
-            prompt: 'This is the question body 2',
+            title: 'Question 3',
+            prompt: 'What is the state when someone is completely absorbed with the activity and situation at hand, commonly referred to in game mechanics and learning?',
             answers: {
-                a: "Option A3",
-                b: "Option B",
-                c: "Option C",
-                d: "Option D"
+                a: "Intrinsic motivation",
+                b: "Flow",
+                c: "Control",
+                d: "Mastery"
             },
-            correctAnswer: "a"
+            correctAnswer: "b"
         }];
    
 
@@ -68,7 +68,7 @@ $(function() {
             for (answer in answers){
                 $('.question-' + thisQuestion + ' .questionForm').append(`
                 <label class="container">
-                    <span class="answer">${answer} ${answers[answer]}</span>
+                    <span class="answer">${answer}. ${answers[answer]}</span>
                     <input type="radio" name="radio" value="${answer}">
                     <span class="checkmark"></span>
                 </label>`
@@ -77,7 +77,7 @@ $(function() {
             //render out the button and close the form
             $(`.question-${thisQuestion} .questionForm`).append(`
                 <div class="questionFooter">
-                    <button type="submit" class="submitButton">Submit</button>
+                    <button type="submit" class="submitButton"> Check Answer</button>
                 </div>`
             );
         };
@@ -121,12 +121,8 @@ $(function() {
     $('.question-2 form').on('submit', function () {
         checkAnswer(event, 2);
     });
-    // Button becomes disabled 
-    // User can select another answer, the button becomes active, and can submit again
-
     
     // All other behaviour
-    
     // Listen if a list item in the sidebar is clicked, if so add a class "active"
     $('.sidebar li').on('click', function() {
         console.log('sidebar clicked');

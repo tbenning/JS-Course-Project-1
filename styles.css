@@ -27,7 +27,7 @@ button {
     background-color: #2166d8;
     border: none;
     color: white;
-    padding: 8px 20px;
+    padding: 8px 15px;
     border-radius: 3px;
     text-align: center;
     text-decoration: none;
@@ -70,8 +70,9 @@ header ul li{
     display: block;
 }
 
-header.logo {
+.logo {
     display: inline;
+    padding: 15px;
 }
 
 /* Main content layout */
@@ -244,3 +245,5 @@ header.logo {
 .container input:checked ~ .container {
     border: 1px solid blue;
 }
+
+
