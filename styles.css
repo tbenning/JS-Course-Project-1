@@ -186,6 +186,13 @@ header ul li{
     margin-bottom: 15px;
 }
 
+.questionForm .selected {
+    border: 1px solid #2166d8;
+    background: #eaf2ff;
+}
+
+.container 
+
 .questionFooter {
     border-top: 1px solid #D9DDE1;
     padding: 15px 20px;
@@ -225,13 +232,10 @@ header ul li{
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
     background-color: #2196F3;
-    border: 1px solid blue;
 }
 
 .container input:checked + label.container {
     background-color: #2196F3;
-    border: 1px solid blue;
-    color: blue;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */

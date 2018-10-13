@@ -39,13 +39,25 @@ $(function() {
                 d: "Mastery"
             },
             correctAnswer: "b"
-        }];
+        },
+        {
+            title: 'Question 4',
+            prompt: 'In Seinfield, how many girlfriends did Jerry have over the course of 9 seasons?', 
+            answers:{
+                a: "79",
+                b: "54",
+                c: "73",
+                d: "69"
+            },
+            correctAnswer: "c"
+        }
+    ];
    
-
-
     // Build questions
     function buildQuestions () {
-        for (let thisQuestion in questions){   
+        for (let thisQuestion in questions){ 
+            //To Do: Build the sidenav
+
             //Render out the heading and question 
             $('.questionContainer').append(`
                 <div class="question-${thisQuestion} question">
@@ -57,7 +69,7 @@ $(function() {
                         <p>${questions[thisQuestion].prompt}</p>
                         <form action="" class="questionForm"></form>
                     </div>
-                </div>
+                </div>   
                 `
             );
 
@@ -83,10 +95,7 @@ $(function() {
         };
     }
 
-    // Block regular submission behaviour
-    // If its correct, it displays a message "Your answer is correct!"
-    // If its incorrect, it displays a message "Your answer is incorrect, try again"
-
+ 
     function checkAnswer (event, thisQuestion) {
         //Prevent default behaviour
         event.preventDefault();
@@ -100,9 +109,7 @@ $(function() {
         if (userAnswer == correctAnswer) {
             alert('Congrats! You have the correct answer!')
         } else {
-            console.log("Incorrect answer");   
-            console.log(`Correct aswe ${correctAnswer}`);
-            console.log(`Chosen answer ${userAnswer}`);            
+            alert('Sorry, you\'re incorrect.')           
         }   
 
         $(`.question-${thisQuestion} .questionHeader p`).text('Answered');
@@ -111,17 +118,21 @@ $(function() {
     buildQuestions();
     
     // Check the answer on submission
-    // DRY!!!
-    $('.question-0 form').on('submit', function () {
-        checkAnswer(event, 0);
-    });
-    $('.question-1 form').on('submit', function () {
-        checkAnswer(event, 1);
-    });
-    $('.question-2 form').on('submit', function () {
-        checkAnswer(event, 2);
-    });
+    // DRY!!! Whoops. 
     
+    for (let thisQuestion in questions){
+        // Check if a radio button is selected, then make the container class active
+        $(`.question-${thisQuestion} .container`).on('click', function(){
+            $(`.question-${thisQuestion} .container`).removeClass('selected');
+            $(this).addClass('selected');
+        });
+        // Check if on submission if the answer is correct
+        $(`.question-${thisQuestion} form`).on('submit', function () {
+            checkAnswer(event, thisQuestion);
+        });
+    }
+    
+
     // All other behaviour
     // Listen if a list item in the sidebar is clicked, if so add a class "active"
     $('.sidebar li').on('click', function() {
@@ -130,6 +141,11 @@ $(function() {
         $('.sidebar li ').removeClass('active');
         // Add class to this item that was clicked
         $(this).addClass('active');
+
+        //Scroll to specific position onClick
+        $('html, body').animate({
+            scrollTop: $('.question-1').offset().top - 100
+        }, 200);
     });
 
 
