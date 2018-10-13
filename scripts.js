@@ -1,14 +1,10 @@
-// A question is loaded from the data
-// A user clicks a question, it loads the question from the object
-// There are 4 or more answers loaded, one of which is correct
-
 $(function() { 
 
-// Question data to load 
+// Question data to load into Question container
     const questions = [
         {
             title: 'Question 1',
-            prompt: 'Of all the doggos the wurld, who is the fluffest?',
+            prompt: 'Of all the doggos the wurld, who is da fluffest?',
             answers: {
                 a: "Sir Hubert J Pennysworth",
                 b: "Swan Ronson",
